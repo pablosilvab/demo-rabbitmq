@@ -18,6 +18,6 @@ Una vez que descargue la imagen y se levante el contenedor, puedes acceder al da
 
 ## Job 
 
-El objetivo del Job es enviar mensajes a una cola, mediante el uso de la librería ```sender``` almacenada en este repositorio.
+El objetivo del Job es enviar mensajes a una cola, mediante el uso de las librerías ```sender``` y ```receiver``` almacenadas en este repositorio.
 
 
