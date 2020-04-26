@@ -11,9 +11,13 @@ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-manag
 
 Una vez que descargue la imagen y se levante el contenedor, puedes acceder al dashboard: http://localhost:15672. Las credenciales por defecto son ```guest/guest```.
 
-## Ejemplos:
+### Ejemplos:
 
 * [Hello World](#01-hello-world)
 * [Workers](#02-queues)
+
+## Job 
+
+El objetivo del Job es enviar mensajes a una cola, mediante el uso de la librería ```sender``` almacenada en este repositorio.
 
 
