@@ -1,6 +1,9 @@
 # RabbitMQ
 Este proyecto tiene como objetivo realizar una introducción a RabbitMQ 🎯 
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/pablosilvab/demo-rabbitmq)](https://goreportcard.com/report/github.com/pablosilvab/demo-rabbitmq)
+
+
 ## Instalación de RabbitMQ 
 
 Puedes ejecutar un contenedor de Docker con el siguiente comando:
