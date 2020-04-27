@@ -1,8 +1,10 @@
-package sender
+package rabbit
 
 import (
 	"log"
+	"time"
 
+	"github.com/pablosilvab/elastic-lib"
 	"github.com/streadway/amqp"
 )
 
@@ -36,6 +38,9 @@ func SendMsg(queueName string, message string) error {
 			Body:         []byte(message),
 		})
 	failOnError(err, "Failed to publish a message")
+
+	elastic.Log("rabbit", Log{q.Name, time.Now(), "send", "OK", ""})
+
 	log.Printf(" [x] Sent %s", message)
 	return nil
 }
