@@ -1,5 +1,5 @@
 run-job:
-	go run job/main.go
+	go run cmd/main.go
 
 run-elastic:
 	@echo "Run elasticsearch container"
