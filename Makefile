@@ -1,5 +1,5 @@
 run-job:
-	go run cmd/main.go
+	RABBIT_URL=amqp://guest:guest@localhost:5672/ go run cmd/main.go
 
 run-elastic:
 	@echo "Run elasticsearch container"

@@ -1,13 +1,19 @@
 package main
 
 import (
-	"fmt"
-
 	rabbit "github.com/pablosilvab/demo-rabbitmq"
 )
 
+type Person struct {
+	Name string
+	Age  int
+}
+
 func main() {
-	msg := "Mensaje de prueba"
-	fmt.Print(msg)
-	rabbit.SendMsg("test", msg)
+	person := Person{
+		Name: "Pablo",
+		Age:  21,
+	}
+
+	rabbit.SendMsg("test", person)
 }

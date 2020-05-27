@@ -1,16 +1,19 @@
 package rabbit
 
 import (
+	"encoding/json"
 	"log"
 	"os"
 
 	"github.com/streadway/amqp"
 )
 
-func SendMsg(queueName string, message string) error {
+func SendMsg(queueName string, message interface{}) error {
 	conn, err := amqp.Dial(os.Getenv("RABBIT_URL"))
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
+
+	msg, err := json.Marshal(message)
 
 	ch, err := conn.Channel()
 	err = failOnError(err, "Failed to open a channel")
@@ -34,13 +37,13 @@ func SendMsg(queueName string, message string) error {
 		amqp.Publishing{
 			DeliveryMode: amqp.Persistent,
 			ContentType:  "text/plain",
-			Body:         []byte(message),
+			Body:         msg,
 		})
 	failOnError(err, "Failed to publish a message")
 
 	//	elastic.Log("rabbit", Log{q.Name, time.Now(), "send", "OK", ""})
 
-	log.Printf(" [x] Sent %s", message)
+	log.Printf(" [x] Sent %+v", message)
 	return nil
 }
 
