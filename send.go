@@ -8,6 +8,7 @@ import (
 	"github.com/streadway/amqp"
 )
 
+// SendMsg allow send a message to queue. AMQP URL must be defined in the environment variable "RABBIT_URL"
 func SendMsg(queueName string, message interface{}) error {
 	conn, err := amqp.Dial(os.Getenv("RABBIT_URL"))
 	failOnError(err, "Failed to connect to RabbitMQ")
