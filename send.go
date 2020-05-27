@@ -2,14 +2,13 @@ package rabbit
 
 import (
 	"log"
-	"time"
+	"os"
 
-	"github.com/pablosilvab/elastic-lib"
 	"github.com/streadway/amqp"
 )
 
 func SendMsg(queueName string, message string) error {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial(os.Getenv("RABBIT_URL"))
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 
@@ -39,7 +38,7 @@ func SendMsg(queueName string, message string) error {
 		})
 	failOnError(err, "Failed to publish a message")
 
-	elastic.Log("rabbit", Log{q.Name, time.Now(), "send", "OK", ""})
+	//	elastic.Log("rabbit", Log{q.Name, time.Now(), "send", "OK", ""})
 
 	log.Printf(" [x] Sent %s", message)
 	return nil
