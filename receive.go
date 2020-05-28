@@ -9,6 +9,7 @@ import (
 
 type UpdatesChannel <-chan interface{}
 
+// ReceiveMsg allow receibe a message from a queue. AMQP URL must be defined in the environment variable "RABBIT_URL"
 func ReceiveMsg(queue string) UpdatesChannel {
 	chs := make(chan interface{})
 	var m interface{}
