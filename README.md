@@ -14,6 +14,8 @@ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-manag
 
 Una vez que descargue la imagen y se levante el contenedor, puedes acceder al dashboard: http://localhost:15672. Las credenciales por defecto son ```guest/guest```.
 
+También puedes usar https://www.cloudamqp.com/ y generar una instancia gratuita de RabbitMQ.
+
 ### Ejemplos:
 
 * [Ejemplos](examples)
